@@ -1,0 +1,3 @@
+Build a FastAPI based "survey tool" that has a questionnaire of 15 questions. The survey should collect basic user info and then the responses for those questions.
+The questionnaire itself, and the response from each user should be stored in the database.
+No frontend needed. Just use tools like Postman/Insomnia/curl to store the responses

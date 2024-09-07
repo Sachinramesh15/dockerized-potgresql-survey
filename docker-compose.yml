@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sachcld15
+      POSTGRES_DB: new
+    ports:
+      - "5433:5432"  # Changed the external port to 5433
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: fastapi-app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_HOST: db
+      DATABASE_NAME: new
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: sachcld15
+      DATABASE_PORT: 5432
+
+volumes:
+  postgres_data:
